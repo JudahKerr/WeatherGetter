@@ -1,15 +1,42 @@
-import React from "react";
+import React, { useState} from "react";
 
-function Search() {
+// 62fc68d2e06db99a20bbb4281c4bce51
+
+function Search(props) {
+  const [searchTerm, setSearchTerm] = useState("");
+  
+  const url1 = "https://api.openweathermap.org/data/2.5/weather?q=";
+  const url2 = "&appid=62fc68d2e06db99a20bbb4281c4bce51&units=imperial";
+
+  const fetchWeather = async () => {
+    try {
+      const response = await fetch(`${url1}${searchTerm}${url2}`);
+      const weatherData = await response.json();
+      console.log(weatherData);
+      const temp = weatherData.main.temp;
+      const description = weatherData.weather[0].description;
+      const icon = weatherData.weather[0].icon;
+      
+      props.pullWeather(temp, description, icon);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  function handleChange(e) {
+    const currentSearch = e.target.value;
+    setSearchTerm(currentSearch);
+  }
   function handleSubmit(e) {
+    fetchWeather();
     e.preventDefault();
   }
   return (
     <div className="container">
       <div className="search">
-        <form onsubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form" autoComplete="off">
           <label htmlFor="name">Enter your city</label>
-          <input type="text" id="name"></input>
+          <input type="text" id="name" onChange={handleChange}></input>
           <button type="submit">Search</button>
         </form>
       </div>
@@ -18,3 +45,5 @@ function Search() {
 }
 
 export default Search;
+
+

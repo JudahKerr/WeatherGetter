@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(https://images.pexels.com/photos/373481/pexels-photo-373481.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-position: top;
+  background-size: cover;
 }
 
 code {
@@ -49,18 +52,50 @@ code {
 .container {
   display: flex;
   justify-content: center;
-  margin: 100px auto;
+  align-items: center;
 }
 
 .search {
-  display: flex;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
   width: 450px;
   height: 200px;
-  justify-content: center;
-
-  align-items: center;
-  flex-direction: column;
-  padding-bottom: 30px;
+  margin-top: 40px;
   border: 2px black solid;
   border-radius: 5px;
+  background-color: rgb(134, 162, 175);
+}
+
+.form {
+  display: grid;
+
+}
+
+.form label {
+  display: grid;
+  justify-self: center;
+  padding-top: 30px;
+  font-size: 2rem;
+}
+
+.weather-container {
+  display: grid;
+  width: 450px;
+  height: 200px;
+  margin: auto;
+  border: 2px black solid;
+  background-color: #066dab;
+}
+
+.weather-container h3 {
+  display: grid;
+  justify-self: center;
+  font-size: 2rem;
+}
+
+.weather-container p {
+  display: grid;
+  justify-self: center;
+  font-size: 2rem;
 }
