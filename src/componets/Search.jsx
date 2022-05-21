@@ -1,10 +1,10 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 
 // 62fc68d2e06db99a20bbb4281c4bce51
 
 function Search(props) {
   const [searchTerm, setSearchTerm] = useState("");
-  
+
   const url1 = "https://api.openweathermap.org/data/2.5/weather?q=";
   const url2 = "&appid=62fc68d2e06db99a20bbb4281c4bce51&units=imperial";
 
@@ -18,8 +18,13 @@ function Search(props) {
       const icon = weatherData.weather[0].icon;
       const name = weatherData.name;
       props.pullWeather(temp, description, icon, name);
+      props.setError("false");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
+      if (error) {
+        console.log("No City Found");
+        props.setError("true");
+      }
     }
   };
 
@@ -45,5 +50,3 @@ function Search(props) {
 }
 
 export default Search;
-
-
