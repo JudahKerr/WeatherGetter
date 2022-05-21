@@ -80,22 +80,31 @@ code {
 }
 
 .weather-container {
-  display: grid;
-  width: 450px;
-  height: 200px;
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  height: 300px;
   border: 2px black solid;
   background-color: #066dab;
 }
 
 .weather-container h3 {
-  display: grid;
-  justify-self: center;
-  font-size: 2rem;
+  font-size: 3rem;
+  align-self: flex-start;
 }
 
-.weather-container p {
-  display: grid;
-  justify-self: center;
-  font-size: 2rem;
+.weather {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+
+.data {
+  display: flex;
+  
+ 
+}
+
+

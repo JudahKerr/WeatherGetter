@@ -9,11 +9,11 @@ import Weather from "./componets/Weather";
 function App() {
   
   const [currentWeather, setCurrentWeather] = useState([]);
-  function getWeather(temp, description, icon) {
+  function getWeather(temp, description, icon, name) {
     
     setCurrentWeather(() => {
       return [
-        temp, description, icon
+        temp, description, icon, name
       ]
     });
     

@@ -16,8 +16,8 @@ function Search(props) {
       const temp = weatherData.main.temp;
       const description = weatherData.weather[0].description;
       const icon = weatherData.weather[0].icon;
-      
-      props.pullWeather(temp, description, icon);
+      const name = weatherData.name;
+      props.pullWeather(temp, description, icon, name);
     } catch (error) {
       console.log(error);
     }
